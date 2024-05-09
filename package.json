@@ -1,0 +1,16 @@
+{
+  "name": "rpc_client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "fdhhhdjd",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
