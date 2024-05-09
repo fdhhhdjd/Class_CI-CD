@@ -66,6 +66,8 @@
  - sudo RUNNER_ALLOW_RUNASROOT=true ./config.sh --url https://github.com/fdhhhdjd/Class_CI-CD --token ******
  - ./svc.sh install
  - ./svc.sh start
+ - install pm2 sudo npm install pm2 -g
+ - pm2 start server.js --name=class_cicd
 
 ## 3. Create file CI
 

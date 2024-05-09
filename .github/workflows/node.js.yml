@@ -27,3 +27,4 @@ jobs:
     - run: |
         npm install
         npm ci
+        pm2 restart class_cicd
