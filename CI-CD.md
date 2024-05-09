@@ -1,9 +1,9 @@
-## 1. Initializing the Express Application
+## I. Initializing the Express Application
 ```cmd
     git clone git@github.com:fdhhhdjd/Class_CI-CD.git
 ```
 
-## 2. Setting up Github and SSH
+## II. Setting up Github and SSH
 ```cmd
     mkdir ~/.ssh
 
@@ -38,7 +38,7 @@
 
 ![alt text](assets/ssh-keys.png)
 
-## 3. Push code on github
+## III. Push code on github
 
 ```cmd
     cd <<Development folder>>
@@ -50,4 +50,30 @@
     git push -u origin main -i ~/.ssh/id_rsa
 ```
 
-## 4. Creation of Server and Connection to Github
+## IV. Creation of Server and Connection to Github
+
+## 1. Settings > actions > Runners > New self-hosted runners
+![alt text](assets/setting.png)
+
+![alt text](assets/setting1.png)
+
+
+## 2. Connect my VPS 
+ - ssh shell-store
+ - install NodeJs [curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -](https://github.com/nodesource/distributions)
+ - Check version: lsb_release -a
+ - mkdir actions-runner && cd actions-runner
+ - sudo RUNNER_ALLOW_RUNASROOT=true ./config.sh --url https://github.com/fdhhhdjd/Class_CI-CD --token ******
+ - ./svc.sh install
+ - ./svc.sh start
+
+## 3. Create file CI
+
+![alt text](assets/CI.png)
+
+![alt text](assets/label.png)
+
+![alt text](assets/label1.png)
+
+![alt text](assets/CI-1.png)
+
