@@ -9,7 +9,7 @@ const PORT = 5005
 
 server.get("/ci-cd", async (_, res, ___) => {
   res.status(200).json({
-    message:"CI-CD Ok"
+    message:"CI-CD Ok 🤖"
   })
 });
 
