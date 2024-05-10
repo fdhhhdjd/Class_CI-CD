@@ -27,11 +27,7 @@ jobs:
     - name: Install dependencies and create lock file
       run: |
         npm install
-    - name: Ensure dependencies are up to date
-      run: |
-        npm ci
+    - run: npm ci
     - name: Restart Class CI/CD service
       run: |
         pm2 restart class_cicd
-
-        
