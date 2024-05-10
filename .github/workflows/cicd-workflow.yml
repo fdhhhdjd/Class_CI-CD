@@ -20,7 +20,7 @@ jobs:
         
   deploy:
     needs: build
-    runs-on: [ubuntu-latest]
+    runs-on: [Linux]
     steps:
       - name: Pull image from docker hub
         run: docker pull nguyentientai/class_ci-cd:latest
