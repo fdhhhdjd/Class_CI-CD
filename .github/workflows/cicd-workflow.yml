@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Login to docker hub
         # run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} 
-        run: echo ${{ secrets.PROD_ENV.DOCKER_HUB_PASSWORD }} | docker login -u ${{ secrets.secrets.PROD_ENV.DOCKER_HUB_USERNAME }} --password-stdin
+        run: echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
         
   deploy:
     needs: build
