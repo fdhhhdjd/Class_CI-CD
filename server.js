@@ -1,6 +1,6 @@
 //* LIB
 const express = require("express");
-
+require('dotenv').config();
 
 const server = express();
 server.use(express.json()); 
