@@ -6,6 +6,8 @@ name: Node.js CI
 on:
   push:
     branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
 
 jobs:
   build:
@@ -28,7 +30,6 @@ jobs:
     - name: Install dependencies and create lock file
       run: |
         npm install
-        npm ci
 
     - name: Created file .env
       run: |
