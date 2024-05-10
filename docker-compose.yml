@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+    service_node:
+        container_name: service_node
+        restart: always
+        build:
+            context: .
+            dockerfile: ./docker/Dockerfile
+        environment:
+            NODE_OPTIONS: "--max-old-space-size=512"
+        ports:
+            - "${PORT}:${PORT}"
+        volumes:
+            - './src:/usr/src/app/src:ro'
+        env_file:
+            - .env
+        healthcheck:
+            test: ['CMD', 'curl', '-f', 'http://localhost:${PORT}/ci-cd']
+            interval: 60s
+            timeout: 2s
+            retries: 3    
+        networks:
+            - class_ci-cd  
+networks:
+    class_ci-cd:
+        driver: bridge
