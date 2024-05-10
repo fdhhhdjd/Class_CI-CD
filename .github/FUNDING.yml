@@ -1,0 +1,23 @@
+# These are supported funding model platforms
+github:
+    - fdhhhdjd
+      # Up to 4 GitHub Sponsors-enabled usernames, e.g., [user1, user2]
+patreon:
+    user?u=65668237
+    # A single Patreon username with user ID, e.g., user?u=65668237
+open_collective:
+    # A single Open Collective username
+ko_fi:
+    tientainguyen
+    # A single Ko-fi username
+tidelift:
+    # A single Tidelift platform-name/package-name, e.g., npm/babel
+community_bridge:
+    # A single Community Bridge project-name, e.g., cloud-foundry
+liberapay: nguyentientai
+
+issuehunt:
+    # A single IssueHunt username
+otechie:
+    # A single Otechie username
+custom: https://profile-forme.com
