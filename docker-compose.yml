@@ -6,7 +6,7 @@ services:
         restart: always
         build:
             context: .
-            dockerfile: ./docker/Dockerfile
+            dockerfile: Dockerfile
         environment:
             NODE_OPTIONS: "--max-old-space-size=512"
         ports:
