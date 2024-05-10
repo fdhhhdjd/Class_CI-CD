@@ -24,7 +24,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: Class_CI-CD/package-lock.json
+        cache-dependency-path: actions-runner/_work/Class_CI-CD/Class_CI-CD/package-lock.json
     - name: Install dependencies and create lock file
       run: |
         npm install
