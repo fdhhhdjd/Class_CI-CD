@@ -24,7 +24,17 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: |
+
+    - name: Install dependencies and create lock file
+      run: |
         npm install
         npm ci
-        pm2 restart class_cicd
+
+    - name: Created file .env
+      run: |
+        touch .env
+        echo ${{ secrets.PROD_ENV }} > .env
+
+    - name: Restart Class CI/CD service        
+      run: |
+          pm2 restart class_cicd

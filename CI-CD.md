@@ -79,3 +79,10 @@
 
 ![alt text](assets/CI-1.png)
 
+## V. Create file .env
+
+## 1. Settings > Secret and variables > New repository secret
+
+![alt text](assets/env.png)
+
+![alt text](assets/env1.png)

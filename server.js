@@ -4,7 +4,7 @@ const express = require("express");
 
 const server = express();
 server.use(express.json()); 
-const PORT = 5005
+const PORT = process.env.PORT
 
 
 server.get("/ci-cd", async (_, res, ___) => {
