@@ -29,7 +29,7 @@ jobs:
 
     - name: Install dependencies and create lock file
       run: |
-        npm install
+        npm ci
 
     - name: Created file .env
       run: |
