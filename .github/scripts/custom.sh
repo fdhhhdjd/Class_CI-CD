@@ -1,1 +1,1 @@
-echo "I'm Nguyen Tien Tai is developer
+echo "I'm Nguyen Tien Tai is developer"
