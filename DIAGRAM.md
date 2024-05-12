@@ -5,3 +5,8 @@
 ## 2. CI-CD With docker
 
 ![alt text](assets/diagram.png)
+
+
+## 3. CI-CD With docker + Send telegram
+
+![alt text](assets/diagram3.png)

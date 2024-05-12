@@ -1,4 +1,4 @@
-name: CICD + NodeJs +  Docker + Notification
+name: CICD + NodeJs +  Docker
 
 on:
   push:
@@ -36,18 +36,3 @@ jobs:
         run: docker rm -f class_ci-cd || true
       - name: Run docker container
         run: docker run -d -p ${{secrets.PORT_RUN_CONTAINER}} --name class_ci-cd ${{ secrets.DOCKER_HUB_USERNAME }}/class_ci-cd
-        
-  notification:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: send telegram message on push
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: |
-            ${{ github.actor }} created commit:
-            Commit message: ${{ github.event.commits[0].message }}
-            Repository: ${{ github.repository }}
-            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
