@@ -30,6 +30,7 @@ jobs:
     steps:
       - name: Pull latest source code
         uses: actions/checkout@v2    
+
       - name: Pull image from docker hub
         run: docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/class_ci-cd:latest
       - name: Delete old container || If not exit it will not error when we have options is true
@@ -40,6 +41,9 @@ jobs:
   notification:
     needs: deploy
     runs-on: ubuntu-latest
+    environment: PROD
+    env:
+      AUTHOR: ${{vars.AUTHOR}} 
     steps:
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
@@ -47,7 +51,7 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}  
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            Welcome to the workflow initiated by ${{vars.AUTHOR}} ${{env.POSITION}} !
+            Welcome to the workflow initiated by $AUTHOR ${{env.POSITION}} !
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
             Repository: ${{ github.repository }}
