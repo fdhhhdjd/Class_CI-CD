@@ -34,8 +34,8 @@ jobs:
 
       - name: Run file scripts
         run: |
-            chmod +x .github/scripts/deploy.sh
-            .github/scripts/deploy.sh
+            chmod +x .github/scripts/custom.sh
+            .github/scripts/custom.sh
         shell: bash
 
       - name: Pull image from docker hub
