@@ -86,3 +86,8 @@
 ![alt text](assets/env.png)
 
 ![alt text](assets/env1.png)
+
+
+## VI. NOTIFICATION
+
+# curl https://api.telegram.org/bot<Token>/getUpdates
