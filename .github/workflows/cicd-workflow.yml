@@ -2,10 +2,12 @@ name: CICD + NodeJs +  Docker + Notification
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
-    branches: [main]
-
+    branches:
+      - main
+    
 jobs:
   build:
     runs-on: [ubuntu-latest]
@@ -48,8 +50,6 @@ jobs:
   notification:
     needs: deploy
     runs-on: ubuntu-latest
-    env:
-      AUTHOR: ${{vars.AUTHOR}}
     steps:
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
@@ -57,7 +57,7 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}  
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            Welcome to the workflow initiated by $AUTHOR !
+            Welcome to the workflow initiated by ${{vars.AUTHOR}} !
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
             Repository: ${{ github.repository }}
