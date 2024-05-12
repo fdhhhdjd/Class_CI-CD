@@ -44,10 +44,10 @@ jobs:
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
-          to: ${{ secrets.TELEGRAM_TO }}
+          to: ${{ secrets.TELEGRAM_TO }}  
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            Hello ${{vars.AUTHOR}} ${{env.POSITION}},
+            Welcome to the workflow initiated by ${{vars.AUTHOR}} ${{env.POSITION}} !
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
             Repository: ${{ github.repository }}
