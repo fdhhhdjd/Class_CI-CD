@@ -30,7 +30,13 @@ jobs:
     environment: PROD
     steps:
       - name: Pull latest source code ${{vars.POSITION}}
-        uses: actions/checkout@v2    
+        uses: actions/checkout@v2
+
+      - name: Run file scripts
+        run: |
+            chmod +x .github/scripts/deploy.sh
+            .github/scripts/deploy.sh
+        shell: bash
 
       - name: Pull image from docker hub
         run: docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/class_ci-cd:latest
@@ -42,6 +48,8 @@ jobs:
   notification:
     needs: deploy
     runs-on: ubuntu-latest
+    env:
+      AUTHOR: ${{vars.AUTHOR}}
     steps:
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
@@ -49,7 +57,7 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}  
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            Welcome to the workflow initiated by ${{vars.AUTHOR}} !
+            Welcome to the workflow initiated by $AUTHOR !
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
             Repository: ${{ github.repository }}
