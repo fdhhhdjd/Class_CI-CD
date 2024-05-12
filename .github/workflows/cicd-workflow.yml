@@ -41,13 +41,12 @@ jobs:
   notification:
     needs: deploy
     runs-on: ubuntu-latest
-    environment: PROD
     env:
       AUTHOR: ${{vars.AUTHOR}} 
     steps:
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
-        with:
+        with: 
           to: ${{ secrets.TELEGRAM_TO }}  
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
