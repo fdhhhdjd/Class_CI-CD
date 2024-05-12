@@ -3,6 +3,8 @@ name: CICD
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   build:
@@ -31,4 +33,4 @@ jobs:
       - name: Delete old container
         run: docker rm -f class_ci-cd
       - name: Run docker container
-        run: docker run -d -p 5005:5005 --name class_ci-cd nguyentientai/class_ci-cd
+        run: docker run -d -p ${{secrets.PORT_RUN_CONTAINER}} --name class_ci-cd nguyentientai/class_ci-cd
