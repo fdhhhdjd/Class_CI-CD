@@ -90,4 +90,4 @@
 
 ## VI. NOTIFICATION
 
-# curl https://api.telegram.org/bot<Token>/getUpdates
+# curl https://api.telegram.org/bot<BOT_TOKEN>/getUpdates
