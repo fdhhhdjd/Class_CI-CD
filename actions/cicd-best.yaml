@@ -1,0 +1,34 @@
+name: Build and Deploy Source for Docker
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: [self-hosted]
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+    - name: Created file .env
+      run: |
+       touch .env
+       echo "PORT=${{ secrets.PORT }}" > .env
+    - name: Build docker image
+      run: docker build -t ${{ secrets.DOCKER_HUB_CLASS }} .
+    - name: Push image to docker registry
+      run: docker push ${{ secrets.DOCKER_HUB_CLASS }}
+
+  deploy:
+    needs: build
+    runs-on: [Linux]
+    steps:
+    - name: Run file docker-compose
+      run: docker-compose -f docker-compose.yml up -d --build   
